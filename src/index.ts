@@ -1,6 +1,6 @@
-import { analyzeImpact, isTestFile } from '@zofai/change-impact';
-import type { AnalyzeOptions, ImpactReport } from '@zofai/change-impact';
-import { assertSafeRelativePath, redact, safeReadJson } from '@zofai/evidence-spec';
+import { analyzeImpact, isTestFile } from '@zof-ai/change-impact';
+import type { AnalyzeOptions, ImpactReport } from '@zof-ai/change-impact';
+import { assertSafeRelativePath, redact, safeReadJson } from '@zof-ai/evidence-spec';
 export interface CoverageMap { schemaVersion: 'coverage-map/v1'; tests: Record<string, string[]> }
 export interface SelectionOptions extends AnalyzeOptions { fullSuite?: boolean; fallback?: 'full' | 'error'; coverageMap?: CoverageMap; coverageMapFile?: string }
 export interface SelectionReport {
