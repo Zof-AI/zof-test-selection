@@ -8,8 +8,8 @@
       "repository": "zof-change-impact",
       "artifact": "zof-ai-change-impact-0.1.0.tgz",
       "url": "https://github.com/Zof-AI/zof-change-impact/releases/download/v0.1.0/zof-ai-change-impact-0.1.0.tgz",
-      "sha256": "6dff1e0045f699a13ae92023c05eac8e75e1e78d699466bc40b45b09054a7461",
-      "sizeBytes": 18969
+      "sha256": "7dad837a5754bd4a6b7de4a7700044c7b503c30292a3332484c795afd2328d3e",
+      "sizeBytes": 19888
     },
     {
       "packageName": "@zof-ai/evidence-spec",
@@ -17,8 +17,8 @@
       "repository": "zof-evidence-spec",
       "artifact": "zof-ai-evidence-spec-0.1.0.tgz",
       "url": "https://github.com/Zof-AI/zof-evidence-spec/releases/download/v0.1.0/zof-ai-evidence-spec-0.1.0.tgz",
-      "sha256": "57f0fbaf210f9f8951291e2490581def1d808826807b819cf146d046e88e6bb8",
-      "sizeBytes": 22912
+      "sha256": "d3d83c1335b801d155d17d3dc3cafd777a55f986d7a9f6023d90513970245ba5",
+      "sizeBytes": 25239
     }
   ]
 }
