@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "release": "v0.1.0",
+  "release": "v0.1.1",
   "dependencies": [
     {
       "packageName": "@zof-ai/change-impact",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "repository": "zof-change-impact",
-      "artifact": "zof-ai-change-impact-0.1.0.tgz",
-      "url": "https://github.com/Zof-AI/zof-change-impact/releases/download/v0.1.0/zof-ai-change-impact-0.1.0.tgz",
-      "sha256": "7dad837a5754bd4a6b7de4a7700044c7b503c30292a3332484c795afd2328d3e",
-      "sizeBytes": 19888
+      "artifact": "zof-ai-change-impact-0.1.1.tgz",
+      "url": "https://github.com/Zof-AI/zof-change-impact/releases/download/v0.1.1/zof-ai-change-impact-0.1.1.tgz",
+      "sha256": "561e10c69ca814f14d4254c742e952415dae661abdacb725a838e468e1aa7329",
+      "sizeBytes": 20849
     },
     {
       "packageName": "@zof-ai/evidence-spec",
