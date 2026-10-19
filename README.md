@@ -1,6 +1,6 @@
-# @zof-ai/test-selection
+# @zofai/test-selection
 
-Select likely relevant tests using local static dependencies from `@zof-ai/change-impact`. Reports explain every selection, conservative fallback and override. No tests or source code are executed, and no data leaves the machine.
+Select likely relevant tests using local static dependencies from `@zofai/change-impact`. Reports explain every selection, conservative fallback and override. No tests or source code are executed, and no data leaves the machine.
 
 Version 0.1.0 is prepared under the Apache-2.0 license. Use the GitHub source installation below; npm registry publication is not claimed.
 
@@ -20,7 +20,7 @@ npm test
 
 The bootstrap downloads only the exact `v0.1.0` dependency assets from [GitHub Releases](https://github.com/Zof-AI/zof-test-selection/releases), as listed in `scripts/release-dependencies.json`, verifies SHA256 and byte size, and adds them to the npm cache. It does not extract archives, run package scripts, collect application data, or send credentials. Downloads require the explicit flag and follow only HTTPS GitHub asset redirects. Installation then fetches ordinary third-party dependencies from npm. Use a writable npm cache; set `npm_config_cache` consistently for both commands if needed. An unavailable asset, changed hash, or oversized response stops installation.
 
-GitHub source and release artifacts are the initial distribution channel. These instructions do not claim that `@zof-ai` packages are published on npm or that the VS Code extension is listed in Marketplace.
+GitHub source and release artifacts are the initial distribution channel. These instructions do not claim that `@zofai` packages are published on npm or that the VS Code extension is listed in Marketplace.
 <!-- ZOF_RELEASE_INSTALL_END -->
 
 ## Install and run
@@ -33,7 +33,7 @@ npm run build
 node dist/cli.js --root examples/local --changed src/math.ts --json
 ```
 
-The report selects `tests/math.test.ts` and omits `tests/other.test.ts`. The package identifier is `@zof-ai/test-selection`; the executable name is `zof-test-selection`.
+The report selects `tests/math.test.ts` and omits `tests/other.test.ts`. The package identifier is `@zofai/test-selection`; the executable name is `zof-test-selection`.
 
 ## Three examples
 
@@ -51,7 +51,7 @@ Use `--base HEAD~1 --head HEAD` for a clean revision comparison, or omit revisio
 ## API and CI decisions
 
 ```js
-import { selectTests, formatReport } from '@zof-ai/test-selection';
+import { selectTests, formatReport } from '@zofai/test-selection';
 const report = await selectTests({
   root: '/absolute/path/to/synthetic-repo',
   changedFiles: ['src/math.ts'],
