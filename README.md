@@ -2,7 +2,7 @@
 
 Select likely relevant tests using local static dependencies from `@zof-ai/change-impact`. Reports explain every selection, conservative fallback and override. No tests or source code are executed, and no data leaves the machine.
 
-This is an unreleased candidate. Candidate namespace, GitHub URLs and Apache-2.0 licensing require approval. Its candidate dependencies must be staged from reviewed local tarballs until they are publicly released; an anonymous registry installation has not been verified.
+Version 0.1.0 is prepared under the Apache-2.0 license. Use the GitHub source installation below; npm registry publication is not claimed.
 
 <!-- ZOF_RELEASE_INSTALL_START -->
 ## Install from GitHub source
@@ -18,14 +18,14 @@ npm run build
 npm test
 ```
 
-The bootstrap downloads only the exact public `v0.1.0` dependency assets listed in `scripts/release-dependencies.json`, verifies SHA256 and byte size, and adds them to the npm cache. It does not extract archives, run package scripts, collect application data, or send credentials. Downloads require the explicit flag and follow only HTTPS GitHub asset redirects. Installation then fetches ordinary third-party dependencies from npm. Use a writable npm cache; set `npm_config_cache` consistently for both commands if needed. An unavailable asset, changed hash, or oversized response stops installation.
+The bootstrap downloads only the exact `v0.1.0` dependency assets from [GitHub Releases](https://github.com/Zof-AI/zof-test-selection/releases), as listed in `scripts/release-dependencies.json`, verifies SHA256 and byte size, and adds them to the npm cache. It does not extract archives, run package scripts, collect application data, or send credentials. Downloads require the explicit flag and follow only HTTPS GitHub asset redirects. Installation then fetches ordinary third-party dependencies from npm. Use a writable npm cache; set `npm_config_cache` consistently for both commands if needed. An unavailable asset, changed hash, or oversized response stops installation.
 
 GitHub source and release artifacts are the initial distribution channel. These instructions do not claim that `@zof-ai` packages are published on npm or that the VS Code extension is listed in Marketplace.
 <!-- ZOF_RELEASE_INSTALL_END -->
 
 ## Install and run
 
-Use Node.js 22 or 24. Git is required only for revision analysis. In a prepared candidate environment (or after approved dependency publication):
+Use Node.js 22 or 24. Git is required only for revision analysis. After the source installation above:
 
 ```sh
 npm ci --ignore-scripts
@@ -33,7 +33,7 @@ npm run build
 node dist/cli.js --root examples/local --changed src/math.ts --json
 ```
 
-The report selects `tests/math.test.ts` and omits `tests/other.test.ts`. The candidate registry name is `@zof-ai/test-selection`; the executable name is `zof-test-selection`.
+The report selects `tests/math.test.ts` and omits `tests/other.test.ts`. The package identifier is `@zof-ai/test-selection`; the executable name is `zof-test-selection`.
 
 ## Three examples
 
@@ -82,7 +82,7 @@ A map may name nonconventional test files if they exist inside the scanned root.
 
 Static imports cannot represent every runtime dependency. Unknown dynamic imports, unsupported changes, aliases, removed files, excluded changes, bounded scans and Python lexical analysis request conservative fallback. Test discovery recognizes conventional `tests/`, `__tests__/`, `.test.*`, `.spec.*`, `test_*.py` and `*_test.py` paths. Empty changes select none unless a full-suite override is used; empty or missing test relationships on actual changes request a full suite.
 
-The underlying impact analyzer bounds file size/count, total source bytes, traversal depth and Git output. Symbolic links, unsafe paths, archives and URLs are not read as coverage maps. Errors omit source content; reports omit environment variables, application logs and source snippets. Shared evidence redaction removes recognizable credentials and sensitive URLs. Do not embed secrets in paths or test names; no redactor recognizes every possible secret. Use a stable checkout rather than a directory being actively modified by an untrusted process.
+The underlying impact analyzer bounds file size/count, total source bytes, traversal depth and Git output. Symbolic links, unsafe paths, archives and URLs are not read as coverage maps. Errors omit source content; reports omit environment variables, application logs and source snippets. Shared evidence redaction removes recognizable credentials and sensitive URLs. Do not embed secrets in paths or test names; no redactor recognizes every possible secret. Directory descriptors prevent path replacement from granting access outside the selected root. File contents may still change during capture.
 
 ## Validation and release
 
@@ -91,4 +91,8 @@ npm test
 npm pack --ignore-scripts
 ```
 
-Tests use synthetic Git repositories, known and unrelated tests, missing relationships, dynamic imports, overrides, coverage maps, traversal, symlinks, excessive inputs, redaction, CLI fallback behavior, and a clean tarball installation with explicit candidate dependencies. Public registry checks remain blocked until approval and publication. Cross-platform workflows are configured; only completed runs verify platform behavior. See [security policy](SECURITY.md) and [release procedure](docs/RELEASE.md).
+Tests use synthetic Git repositories, known and unrelated tests, missing relationships, dynamic imports, overrides, coverage maps, traversal, symlinks, excessive inputs, redaction, CLI fallback behavior, and a clean tarball installation with explicit candidate dependencies. Registry publication and live registry installation are not claimed. Linux/macOS workflows are configured; only completed runs verify platform behavior. See [security policy](SECURITY.md) and [release procedure](docs/RELEASE.md).
+
+## Filesystem and Git boundaries
+
+Filesystem operations use bounded, directory-relative descriptors on Linux/macOS with Python 3.10 or newer. Symlinks, hard-linked inputs, special files and traversal are rejected. Open descriptors remain attached to the original directory when names change. File contents can still change during a read or snapshot; this is not an atomic filesystem snapshot. Windows filesystem operations fail closed; in-memory JSON validation and analysis do not require the file helper. Git reads use a private bounded snapshot: 256 MiB total, 32 MiB per source/object file, 50,000 entries and 64 directory levels. Repository hooks/configuration are not used; local `.git/info/exclude` and `.git/info/attributes` are preserved. External Git metadata, object alternates, grafts, sparse-checkout metadata, linked worktrees and submodules are unsupported. Limits and unsupported metadata cause an explicit error or incomplete result.
