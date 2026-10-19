@@ -1,6 +1,6 @@
 {
   "name": "@zof-ai/test-selection",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Conservative explainable static test selection with full-suite fallbacks",
   "type": "module",
   "main": "./dist/index.js",
@@ -56,7 +56,7 @@
     "@types/node": "22.19.11"
   },
   "dependencies": {
-    "@zof-ai/change-impact": "0.1.1",
-    "@zof-ai/evidence-spec": "0.1.0"
+    "@zof-ai/change-impact": "0.1.2",
+    "@zof-ai/evidence-spec": "0.1.1"
   }
 }
